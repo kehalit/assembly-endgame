@@ -12,7 +12,12 @@ body {
   display: flex;
   justify-content: center;
 }
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+}
 header {
   text-align: center;
 }
@@ -36,10 +41,19 @@ section.game-status{
   background: #10A95B;
   align-items: center;
   color: #F9F4DA;
+  width: 100%;
+  max-width: 350%;
   border-radius: 4px;
   margin-block: 30px;
   
 
+}
+section.game-status.won {
+  background-color: #10A95B;
+}
+
+section.game-status.lost {
+  background-color: #BA2A2A;
 }
 
 section.game-status > h2{
@@ -68,11 +82,27 @@ section.language-chips{
  
 }
 span.chip{
-  
+  position: relative;
   border-radius: 3px;
   gap: 4.5px;
   padding: 4.5px;
   
+}
+
+span.chip.lost::before {
+  content: "\1F480"; /* 💀 */
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1.2rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+
 }
 
 section.word{
@@ -113,6 +143,14 @@ section.keyboard > button{
   border-width: 1px;
   cursor: pointer;
   
+}
+
+section.keyboard > button.correct {
+  background-color: #10A95B;
+}
+
+section.keyboard > button.wrong {
+  background-color: #EC5D49;
 }
 
 button.new-game{
